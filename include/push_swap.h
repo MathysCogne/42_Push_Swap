@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/09 22:24:18 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/10 00:20:17 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,18 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 
+typedef struct s_pile
+{
+	int	*a;
+	int	*b;
+}		t_pile;
+
 /*******************************/
 /*          PUSH SWAP          */
 /*******************************/
-int	push_swap(void);
+void	push_swap(size_t size, char **arg);
+
+short	parsing(t_pile *pile, size_t size, char **arg);
 
 /*******************************/
 /*            UTILS            */
