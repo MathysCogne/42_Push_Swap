@@ -10,7 +10,8 @@ INCDIR = include
 SRC = main.c \
 		push_swap.c \
 			parsing.c \
-				utils.c
+			operation/swap.c operation/push.c \
+			utils/utils.c utils/utils_lst.c
 
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))

@@ -6,39 +6,52 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:19:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/10 14:54:28 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/11 00:23:06 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	debug_print(t_pile pile)
+void	debug_print(t_data lst)
 {
-	int	i;
-
-	i = 0;
 	ft_printf("A | B\n");
 	ft_printf("-----\n");
-	while(i < 4 || pile.a[i])
+	while(lst.a || lst.b)
 	{
-		ft_printf("%d - %d\n", pile.a[i], pile.b[i]);
-		i++;
+		if (lst.a)
+		{
+			ft_printf("%d", lst.a->content);
+			lst.a = lst.a->next;
+		}
+		ft_printf(" - ");
+		if (lst.b)
+		{
+			ft_printf("%d", lst.b->content);
+			lst.b = lst.b->next;
+		}
+		ft_printf("\n");
 	}
 }
 
-void	ft_put_error(short error)
+void	manage_error_free(short error, t_data *lst)
 {
-	ft_putstr_fd("Error\n", 2);
-	if (error == 1)
-		exit(EXIT_FAILURE);
 	if (error == 2)
 	{
 		ft_printf("DEBUG: Erreur in Alloc struct");
-		exit(EXIT_FAILURE);
 	}
+	// TODO: FREE CONTENT LST
+	// free(lst->a);
+	// free(lst->b);
 	if (error == 3)
 	{
 		ft_printf("DEBUG: Erreur in Parsing");
-		exit(EXIT_FAILURE);
 	}
+	ft_put_error_exit();
+	free(lst);
+}
+
+void	ft_put_error_exit(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
 }

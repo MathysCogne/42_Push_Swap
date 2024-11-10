@@ -6,33 +6,31 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:24:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/10 14:57:45 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/10 21:37:19 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// • En cas d’erreur, vous devez afficher "Error" suivi d’un ’\n’ sur la sortie d’erreur.
-// Par exemple, si certains paramètres ne sont pas des nombres, ne tiennent pas dans
-// un int, ou encore, s’il y a des doublons.
-// CHECK INT PLS
 #include "push_swap.h"
 
-static short	load_pile(t_pile *pile, size_t size, char **arg)
+static short	load_pile(t_data *lst, size_t size, char **arg)
 {
 	size_t	i;
 
-	pile->a = (int *)malloc(size * sizeof(int));
-	if (!pile->a)
-		return (1);
-	pile->b = (int *)malloc(size * sizeof(int));
-	if (!pile->b)
-	{
-		free(pile->a);
-		return (1);
-	}
 	i = 0;
+	lst->a = ft_lstnew_int(ft_atoi(arg[i + 1]));
+	if (!lst->a)
+		return (1);
+	i++;
+	// TODO A INIT AVEC UNE VALEUR
+	// lst->b = ft_lstnew_int(NULL);
+	// if (!lst->b)
+	// {
+	// 	free(lst->a);
+	// 	return (1);
+	// }
 	while (i < size)
 	{
-		pile->a[i] = ft_atoi(arg[i + 1]); // Skip PRGM NAME
+		ft_lstadd_int_back(&lst->a, ft_lstnew_int(ft_atoi(arg[i + 1])));
 		i++;
 	}
 	return (0);
@@ -42,14 +40,17 @@ static short	no_duplicate(size_t size, char **arg)
 {
 	size_t	i;
 	size_t	j;
+	int		tmp_arg;
 
 	i = 1;
 	while (i < size)
 	{
+		tmp_arg = ft_atoi(arg[i]);
 		j = i + 1;
 		while (j < size)
 		{
-			if (ft_atoi(arg[i]) == ft_atoi(arg[j]))
+			
+			if (tmp_arg == ft_atoi(arg[j]))
 				return (1);
 			j++;
 		}
@@ -60,12 +61,14 @@ static short	no_duplicate(size_t size, char **arg)
 
 static short	is_int(size_t size, char **arg)
 {
-	size_t	i;
-	char	*str;
+	size_t		i;
+	char		*str;
 
 	i = 1;
 	while (i < size)
 	{
+		if (ft_atoll(arg[i]) > INT_MAX || ft_atoll(arg[i]) < INT_MIN)
+			return (1);
 		str = arg[i];
 		if (*str == '-' || *str == '+')
 			str++;
@@ -80,13 +83,13 @@ static short	is_int(size_t size, char **arg)
 	return (0);
 }
 
-short	parsing(t_pile *pile, size_t size, char **arg)
+short	parsing(t_data *lst, size_t size, char **arg)
 {
 	if (is_int(size, arg))
 		return (1);
 	if (no_duplicate(size, arg))
 		return (1);
-	if (load_pile(pile, size - 1, arg))
+	if (load_pile(lst, size - 1, arg))
 		return (1);
 	return (0);
 }
