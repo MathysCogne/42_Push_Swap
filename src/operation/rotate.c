@@ -1,52 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 21:55:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 13:44:03 by mcogne--         ###   ########.fr       */
+/*   Created: 2024/11/11 14:13:00 by mcogne--          #+#    #+#             */
+/*   Updated: 2024/11/11 16:47:26 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-** Swap[a - b] the first 2 elements at the top of the stack
-** Nothing if stack is empty or just one
-** Swap[s] -> swap a and swap b
+** Rotate [a - b] -> Swap one position up
+** The first element becomes the last
 */
-static void	ft_lst_swap(t_lst *a, t_lst *b)
+void	ft_rotate_a(t_data *lst)
 {
-	t_lst	tmp;
+	t_lst	*tmp;
 
-	if (!a || !b)
-		return ;
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-
-	b->next = a->next;
-	a->next = b;
-}
-
-void	ft_swap_a(t_data *lst)
-{
 	if (!lst->a || !lst->a->next)
 		return ;
-	ft_lst_swap(lst->a, lst->a->next);
+	tmp = lst->a;
+	lst->a = lst->a->next;
+	ft_lstadd_int_back(&lst->a, tmp);
+	tmp->next = NULL;
 }
 
-void	ft_swap_b(t_data *lst)
+void	ft_rotate_b(t_data *lst)
 {
+	t_lst	*tmp;
+
 	if (!lst->b || !lst->b->next)
 		return ;
-	ft_lst_swap(lst->b, lst->b->next);
+	tmp = lst->b;
+	lst->b = lst->b->next;
+	ft_lstadd_int_back(&lst->b, tmp);
+	tmp->next = NULL;
 }
 
-void	ft_swap_s(t_data *lst)
+void	ft_rotate_r(t_data *lst)
 {
-	ft_swap_a(lst);
-	ft_swap_b(lst);
+	ft_rotate_a(lst);
+	ft_rotate_b(lst);
 }

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/10 23:58:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:50:16 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ void	ft_swap_s(t_data *lst);
 void	ft_push_a(t_data *lst);
 void	ft_push_b(t_data *lst);
 
+void	ft_rotate_a(t_data *lst);
+void	ft_rotate_b(t_data *lst);
+void	ft_rotate_r(t_data *lst);
+
+void	ft_reverse_rotate_a(t_data *lst);
+void	ft_reverse_rotate_b(t_data *lst);
+void	ft_reverse_rotate_r(t_data *lst);
+
 /*******************************/
 /*            UTILS            */
 /*******************************/
@@ -55,6 +63,7 @@ void	manage_error_free(short error, t_data *lst);
 void	ft_put_error_exit(void);
 void	debug_print(t_data lst);
 
+size_t	ft_lstsize_int(t_lst *lst);
 t_lst	*ft_lstnew_int(int content);
 void	ft_lstadd_int_back(t_lst **lst, t_lst *new);
 void	ft_lstadd_int_front(t_lst **lst, t_lst *new);

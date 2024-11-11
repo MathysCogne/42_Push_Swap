@@ -6,11 +6,27 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:34:17 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 00:12:35 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:10:28 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+size_t	ft_lstsize_int(t_lst *lst)
+{
+	size_t	size;
+
+	if (!lst)
+		return (0);
+	size = 0;
+	while (lst != NULL)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
+}
 
 t_lst	*ft_lstnew_int(int content)
 {

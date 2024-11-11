@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:24:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/10 21:37:19 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/11 14:26:49 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,7 @@ static short	load_pile(t_data *lst, size_t size, char **arg)
 	if (!lst->a)
 		return (1);
 	i++;
-	// TODO A INIT AVEC UNE VALEUR
-	// lst->b = ft_lstnew_int(NULL);
-	// if (!lst->b)
-	// {
-	// 	free(lst->a);
-	// 	return (1);
-	// }
+	lst->b = NULL;
 	while (i < size)
 	{
 		ft_lstadd_int_back(&lst->a, ft_lstnew_int(ft_atoi(arg[i + 1])));
@@ -67,6 +61,7 @@ static short	is_int(size_t size, char **arg)
 	i = 1;
 	while (i < size)
 	{
+		// TODO LEN INT
 		if (ft_atoll(arg[i]) > INT_MAX || ft_atoll(arg[i]) < INT_MIN)
 			return (1);
 		str = arg[i];
