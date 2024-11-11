@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:24:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 14:26:49 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:01:13 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ static short	is_int(size_t size, char **arg)
 	i = 1;
 	while (i < size)
 	{
-		// TODO LEN INT
+		if (ft_strlen(arg[i]) > 12)
+			return (1);
 		if (ft_atoll(arg[i]) > INT_MAX || ft_atoll(arg[i]) < INT_MIN)
 			return (1);
 		str = arg[i];
