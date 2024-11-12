@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 23:06:57 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 15:59:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:15:06 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	ft_push_a(t_data *lst)
 	tmp = lst->b;
 	lst->b = lst->b->next;
 	ft_lstadd_int_front(&(lst->a), tmp);
-	tmp->next = NULL;
-	// ft_lst_int_delone(lst->b);
 }
 
 void	ft_push_b(t_data *lst)
@@ -41,6 +39,5 @@ void	ft_push_b(t_data *lst)
 		return ;
 	tmp = lst->a;
 	lst->a = lst->a->next;
-	ft_lstadd_int_front(&lst->b, tmp);
-	tmp->next = NULL;
+	ft_lstadd_int_front(&(lst->b), tmp);
 }

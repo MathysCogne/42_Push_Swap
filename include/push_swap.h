@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 16:50:16 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:06:20 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_data
 void	push_swap(size_t size, char **arg);
 
 short	parsing(t_data *lst, size_t size, char **arg);
+
+void	ft_sort_three(t_data *lst);
 
 /*******************************/
 /*          OPERATION          */
