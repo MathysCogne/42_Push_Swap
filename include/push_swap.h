@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/12 17:06:20 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/13 00:24:57 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ void	push_swap(size_t size, char **arg);
 
 short	parsing(t_data *lst, size_t size, char **arg);
 
+/*******************************/
+/*            SORT             */
+/*******************************/
 void	ft_sort_three(t_data *lst);
+void	ft_sort_five(t_data *lst);
 
 /*******************************/
 /*          OPERATION          */

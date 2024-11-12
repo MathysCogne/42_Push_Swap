@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:47:54 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/12 17:06:52 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/12 22:46:55 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	push_swap(size_t size, char **arg)
 	// ft_rotate_a(&lst);
 	// ft_reverse_rotate_a(&lst);
 	debug_print(lst);
-	ft_sort_three(&lst);
+	// ft_sort_three(&lst);
+	ft_sort_five(&lst);
 	debug_print(lst);
 }

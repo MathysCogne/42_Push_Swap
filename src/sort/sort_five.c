@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 17:52:41 by mcogne--          #+#    #+#             */
+/*   Created: 2024/11/12 22:44:26 by mcogne--          #+#    #+#             */
 /*   Updated: 2024/11/12 23:30:39 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sort_three(t_data *lst)
+static size_t	find_min_value(t_lst *lst)
 {
-	if (!lst->a->next)
-		return;
-	if (lst->a->content > lst->a->next->content)
-		ft_swap_a(lst);
-	if (!lst->a->next->next)
-		return;
-	if (lst->a->next->content > lst->a->next->next->content)
+	int min = lst->content;
+	while (lst)
 	{
-		ft_reverse_rotate_a(lst);
-		if (lst->a->content > lst->a->next->content)
-			ft_swap_a(lst);
+		if (lst->content < min)
+			min = lst->content;
+		lst = lst->next;
 	}
-	else if (lst->a->content > lst->a->next->content)
+	return min;
+}
+
+void	ft_sort_five(t_data *lst)
+{
+	size_t	min_value;
+	if (!lst->a || !lst->a->next || !lst->a->next->next)
+		return;
+
+	while (ft_lstsize_int(lst->a) > 3)
+	{
+		min_value = find_min_value(lst->a);
+		if ((size_t)lst->a->content == min_value)
+			ft_push_b(lst);
+		else
+			ft_rotate_a(lst);
+	}
+	ft_sort_three(lst);
+	ft_push_a(lst);
+	ft_push_a(lst);
+	if (lst->a->content > lst->a->next->content)
 		ft_swap_a(lst);
 }
