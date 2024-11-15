@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:19:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/12 17:11:46 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:38:18 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	debug_print(t_data lst)
 {
 	ft_printf("A | B\n");
 	ft_printf("-----\n");
-	while(lst.a || lst.b)
+	while (lst.a || lst.b)
 	{
 		if (lst.a)
 		{
-			ft_printf("%d", lst.a->content);
+			ft_printf("%d / %d", lst.a->content, lst.a->pos);
 			lst.a = lst.a->next;
 		}
 		ft_printf(" - ");

@@ -6,12 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:34:17 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 16:10:28 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/14 16:35:46 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 size_t	ft_lstsize_int(t_lst *lst)
 {
@@ -36,6 +35,7 @@ t_lst	*ft_lstnew_int(int content)
 	if (!new_lst)
 		return (NULL);
 	new_lst->content = content;
+	new_lst->pos = 0;
 	new_lst->next = NULL;
 	return (new_lst);
 }
