@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 16:16:13 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/14 17:32:11 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:44:48 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** Find position on stack after sort
-** 
+**
 */
 t_lst	*find_max(t_data lst)
 {
@@ -48,7 +48,6 @@ void	find_pos(t_data *lst, size_t size)
 			tmp = tmp->next;
 		}
 		min->pos = pos;
-		debug_print(*lst);
 		pos++;
 	}
 }
