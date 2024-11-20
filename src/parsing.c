@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:24:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/12 22:12:54 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/20 01:40:17 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static short	no_duplicate(size_t size, char **arg)
 		j = i + 1;
 		while (j < size)
 		{
-			
 			if (tmp_arg == ft_atoi(arg[j]))
 				return (1);
 			j++;

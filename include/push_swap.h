@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/14 17:39:13 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/20 01:56:15 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ short				parsing(t_data *lst, size_t size, char **arg);
 /*******************************/
 /*            SORT             */
 /*******************************/
+void				ft_sort_dispatcher(t_data *lst, size_t size);
 void				ft_sort_three(t_data *lst);
 void				ft_sort_five(t_data *lst);
-
-void				ft_sort_main(t_data *lst, size_t size);
+void				ft_block_sort(t_data *lst, size_t size);
 
 /*******************************/
 /*          OPERATION          */
