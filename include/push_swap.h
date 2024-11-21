@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/20 01:56:15 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:14:23 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void				ft_put_error_exit(void);
 void				debug_print(t_data lst);
 
 void				find_pos(t_data *lst, size_t size);
+
+short				ft_already_sort(t_data *lst);
 
 size_t				ft_lstsize_int(t_lst *lst);
 t_lst				*ft_lstnew_int(int content);

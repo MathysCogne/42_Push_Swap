@@ -6,13 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 11:23:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/20 01:55:05 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:25:07 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	g_op_count;
 
 static size_t	get_optimal_size(size_t stack_size)
 {
@@ -68,13 +66,9 @@ static void	push_to_b_and_sort(t_data *lst, size_t size)
 			if (lst->b->pos < segment_end - (size_seg / 2))
 				ft_rotate_b(lst);
 			segment_start++;
-			g_op_count++;
 		}
 		else
-		{
 			ft_rotate_a(lst);
-			g_op_count++;
-		}
 	}
 }
 
@@ -91,7 +85,6 @@ static void	push_to_a(t_data *lst)
 	{
 		size = ft_lstsize_int(lst->b);
 		find_max_position(lst, &max_pos);
-		
 		while (max_pos > 0)
 		{
 			if (max_pos <= size / 2)
@@ -107,17 +100,13 @@ static void	push_to_a(t_data *lst)
 				else
 					max_pos = max_pos + 1;
 			}
-			g_op_count++;
 		}
 		ft_push_a(lst);
-		g_op_count++;
 	}
 }
 
 void	ft_block_sort(t_data *lst, size_t size)
 {
-	g_op_count = 0;
 	push_to_b_and_sort(lst, size);
 	push_to_a(lst);
-	ft_printf("\nCOUNT OPE: %d\n", g_op_count);
 }

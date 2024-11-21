@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:32:08 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/20 01:40:53 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:56:24 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_reverse_rotate_a(t_data *lst)
 	tmp->next = NULL;
 	last->next = lst->a;
 	lst->a = last;
+	ft_printf("rra\n");
 }
 
 void	ft_reverse_rotate_b(t_data *lst)
@@ -46,10 +47,12 @@ void	ft_reverse_rotate_b(t_data *lst)
 	tmp->next = NULL;
 	last->next = lst->b;
 	lst->b = last;
+	ft_printf("rrb\n");
 }
 
 void	ft_reverse_rotate_r(t_data *lst)
 {
 	ft_reverse_rotate_a(lst);
 	ft_reverse_rotate_b(lst);
+	ft_printf("rrr\n");
 }

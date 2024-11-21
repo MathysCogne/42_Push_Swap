@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 21:55:35 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/11 13:44:03 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:56:31 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	ft_lst_swap(t_lst *a, t_lst *b)
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
-
 	b->next = a->next;
 	a->next = b;
 }
@@ -36,6 +35,7 @@ void	ft_swap_a(t_data *lst)
 	if (!lst->a || !lst->a->next)
 		return ;
 	ft_lst_swap(lst->a, lst->a->next);
+	ft_printf("sa\n");
 }
 
 void	ft_swap_b(t_data *lst)
@@ -43,10 +43,12 @@ void	ft_swap_b(t_data *lst)
 	if (!lst->b || !lst->b->next)
 		return ;
 	ft_lst_swap(lst->b, lst->b->next);
+	ft_printf("sb\n");
 }
 
 void	ft_swap_s(t_data *lst)
 {
 	ft_swap_a(lst);
 	ft_swap_b(lst);
+	ft_printf("ss\n");
 }

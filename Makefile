@@ -12,7 +12,7 @@ SRC = main.c \
 			parsing.c \
 			sort/sort_dispatcher.c sort/sort_three.c sort/sort_five.c sort/block_sort.c \
 			operation/swap.c operation/push.c operation/rotate.c operation/reverse_rotate.c \
-			utils/utils.c utils/utils_lst.c utils/find_pos.c
+			utils/utils.c utils/utils_lst.c utils/find_pos.c utils/already_sort.c
 
 OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))

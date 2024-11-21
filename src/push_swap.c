@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:47:54 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/20 01:57:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:23:06 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	push_swap(size_t size, char **arg)
 		manage_error_free(2, &lst);
 	if (parsing(&lst, size, arg))
 		manage_error_free(3, &lst);
-	// TODO IF ALREADY SORTEDN
-	ft_sort_dispatcher(&lst, size);
-	debug_print(lst);
+	if (ft_already_sort(&lst))
+		ft_sort_dispatcher(&lst, size);
+	// debug_print(lst);
 }
