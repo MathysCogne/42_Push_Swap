@@ -10,7 +10,8 @@ INCDIR = include
 SRC = main.c \
 		push_swap.c \
 			parsing.c \
-			sort/sort_dispatcher.c sort/sort_three.c sort/sort_five.c sort/block_sort.c \
+			sort/sort_dispatcher.c sort/sort_three.c sort/sort_five.c \
+			sort/block_sort/block_sort.c sort/block_sort/phase_1.c sort/block_sort/phase_2.c  sort/block_sort/sort_utils.c \
 			operation/swap.c operation/push.c operation/rotate.c operation/reverse_rotate.c \
 			utils/utils.c utils/utils_lst.c utils/find_pos.c utils/already_sort.c
 

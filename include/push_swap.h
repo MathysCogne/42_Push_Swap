@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/21 17:14:23 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/28 22:25:33 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ typedef struct s_data
 	t_lst			*b;
 }					t_data;
 
+typedef struct s_segment
+{
+	size_t			size;
+	size_t			start;
+	size_t			end;
+	size_t			pivot;
+	size_t			rot_count;
+	size_t			stack_size;
+}					t_segment;
+
 /*******************************/
 /*          PUSH SWAP          */
 /*******************************/
@@ -46,6 +56,15 @@ void				ft_sort_dispatcher(t_data *lst, size_t size);
 void				ft_sort_three(t_data *lst);
 void				ft_sort_five(t_data *lst);
 void				ft_block_sort(t_data *lst, size_t size);
+
+void				push_to_b_and_sort(t_data *lst, size_t size);
+void				push_to_a(t_data *lst);
+size_t				get_optimal_size(size_t stack_size);
+void				init_segment(t_segment *seg, size_t total_size);
+int					handle_segment_rotation(t_data *lst, size_t *rot_count, size_t stack_size);
+void				update_segment(t_data *lst, t_segment *seg);
+void				handle_rotation(t_data *lst, size_t *rot_count, size_t stack_size);
+size_t				find_pivot(t_data *lst, size_t start, size_t end);
 
 /*******************************/
 /*          OPERATION          */
