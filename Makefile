@@ -19,6 +19,20 @@ OBJ = $(SRC:.c=.o)
 SRC := $(addprefix $(SRCDIR)/, $(SRC))
 OBJ := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ))
 
+
+
+NAME_BONUS = checker
+
+SRC_BONUS =	checker_bonus/checker_bonus.c \
+				checker_bonus/read_make_operation.c \
+				operation/swap.c operation/push.c operation/rotate.c operation/reverse_rotate.c \
+				parsing.c utils/utils.c utils/utils_lst.c utils/find_pos.c utils/already_sort.c \
+
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+SRC_BONUS := $(addprefix $(SRCDIR)/, $(SRC_BONUS))
+OBJ_BONUS := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ_BONUS))
+
+
 # Libraries
 LIBFT_DIR := libft
 LIBFT := $(LIBFT_DIR)/libft.a
@@ -46,14 +60,15 @@ RESET   := "\033[0m"
 
 
 
-# Default Rule
+#########################################
+#	Default								#
+#########################################
+
 all: $(OBJDIR) $(LIBFT) $(NAME)
 
-# Object Directory Rule
 $(OBJDIR):
 	$(V)mkdir -p $(OBJDIR) || true
 
-# Dependency Files
 DEP = $(OBJ:.o=.d)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
@@ -62,10 +77,30 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 
 -include $(DEP)
 
-# Linking Rule
 $(NAME): $(OBJ) $(LIBFT)
 	$(V)$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) $(BONUS_OBJ) $(LIBS) $(MLXFLAGS) -o $(NAME)
 	$(V)echo $(GREEN)"[$(NAME)] Executable created ✅"$(RESET)
+
+
+#########################################
+#	Bonus								#
+#########################################
+
+bonus: $(OBJDIR) $(LIBFT) $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_BONUS) $(LIBFT)
+	$(V)$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ_BONUS) $(LIBS) -o $@
+	$(V)echo $(GREEN)"[$(NAME_BONUS)] Executable created ✅"$(RESET)
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
+	@mkdir -p $(dir $@)
+	$(V)$(CC) $(CFLAGS) -MMD -MP -c $< -o $@
+
+DEP_BONUS = $(OBJ_BONUS:.o=.d)
+
+-include $(DEP_BONUS)
+
+
 
 # Libft
 $(LIBFT):
@@ -77,12 +112,13 @@ $(LIBFT):
 
 # Clean Rules
 clean:
-	$(V)echo $(RED)'[$(NAME)] Cleaning objects'd$(RESET)
+	$(V)echo $(RED)'[$(NAME)] Cleaning objects'$(RESET)
 	$(V)rm -rf $(OBJDIR)
 
 fclean: clean
 	$(V)echo $(RED)'[$(NAME)] Cleaning all files'$(RESET)
 	$(V)rm -f $(NAME)
+	$(V)rm -f $(NAME_BONUS)
 	$(V)$(MAKE) --silent -C $(LIBFT_DIR) fclean
 	$(V)echo $(RED)'[libft] Remove directory'$(RESET)
 	@rm -rf $(LIBFT_DIR)

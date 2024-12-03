@@ -6,20 +6,12 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:25:08 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/28 22:25:32 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/11/28 22:52:41 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	get_optimal_size(size_t stack_size)
-{
-	if (stack_size <= 101)
-		return (15);
-	if (stack_size <= 499)
-		return (20);
-	return (29);
-}
 
 void	init_segment(t_segment *seg, size_t total_size)
 {

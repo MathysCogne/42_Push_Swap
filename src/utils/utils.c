@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:19:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/14 16:38:18 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/03 21:57:54 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ void	manage_error_free(short error, t_data *lst)
 	if (error == 3)
 	{
 		ft_printf("DEBUG: Erreur in Parsing");
+	}
+	if (error == 4)
+	{
+		ft_printf("DEBUG: Erreur in BONUS: Parce input");
 	}
 	ft_put_error_exit();
 	free(lst);

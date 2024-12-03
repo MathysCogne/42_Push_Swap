@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 21:47:51 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/03 19:54:55 by mcogne--         ###   ########.fr       */
+/*   Created: 2024/12/03 19:41:57 by mcogne--          #+#    #+#             */
+/*   Updated: 2024/12/03 21:02:09 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
-int	main(int argc, char **argv)
-{
-	if (argc < 2)
-	{
-		ft_put_error_exit();
-		return (1);
-	}
-	push_swap(argc, argv);
-	return (0);
-}
+# include "push_swap.h"
+# include "get_next_line.h"
+
+/*******************************/
+/*       CHECKER - BONUS       */
+/*******************************/
+short				read_make_operation(t_data *lst);
+
+/*******************************/
+/*            UTILS            */
+/*******************************/
+
+#endif

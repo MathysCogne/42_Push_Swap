@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 21:47:54 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/03 20:44:16 by mcogne--         ###   ########.fr       */
+/*   Created: 2024/12/03 19:38:28 by mcogne--          #+#    #+#             */
+/*   Updated: 2024/12/03 22:12:58 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 static t_data	*init_struct(t_data *lst)
 {
@@ -22,7 +22,17 @@ static t_data	*init_struct(t_data *lst)
 	return (lst);
 }
 
-void	push_swap(size_t size, char **arg)
+void	win()
+{
+	ft_printf("OK !");
+}
+
+void	ko()
+{
+	ft_printf("KO !");
+}
+
+static void	ft_checker(size_t size, char **arg)
 {
 	t_data	lst;
 
@@ -32,7 +42,25 @@ void	push_swap(size_t size, char **arg)
 		manage_error_free(2, &lst);
 	if (parsing(&lst, size, arg))
 		manage_error_free(3, &lst);
-	if (ft_already_sort(&lst))
-		ft_sort_dispatcher(&lst, size);
+	find_pos(&lst, size);
+	if (read_make_operation(&lst))
+		manage_error_free(4, &lst); // TODO DEFINE ERROR 4
 	debug_print(lst);
+	if (ft_already_sort(&lst))
+	{
+		ko();
+		return ;
+	}
+	win();
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc < 2)
+	{
+		ft_put_error_exit();
+		return (1);
+	}
+	ft_checker(argc, argv);
+	return (0);
 }
