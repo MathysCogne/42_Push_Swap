@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:24:52 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/20 01:40:17 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:19:24 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static short	no_duplicate(size_t size, char **arg)
 
 static short	is_int(size_t size, char **arg)
 {
-	size_t		i;
-	char		*str;
+	size_t	i;
+	char	*str;
 
 	i = 1;
 	while (i < size)

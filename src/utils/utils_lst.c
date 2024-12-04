@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:34:17 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/14 16:35:46 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 19:17:49 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,19 @@ void	ft_lstadd_int_front(t_lst **lst, t_lst *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
+}
+
+void	ft_lst_free(t_lst **lst)
+{
+	t_lst	*tmp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		free(tmp);
+	}
+	*lst = NULL;
 }

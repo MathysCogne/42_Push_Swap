@@ -6,21 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:47:54 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/03 20:44:16 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 22:44:11 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_data	*init_struct(t_data *lst)
-{
-	lst = malloc(sizeof(t_data));
-	if (!lst)
-		return (NULL);
-	lst->a = NULL;
-	lst->b = NULL;
-	return (lst);
-}
 
 void	push_swap(size_t size, char **arg)
 {
@@ -28,11 +18,10 @@ void	push_swap(size_t size, char **arg)
 
 	if (!arg)
 		ft_put_error_exit();
-	if (!init_struct(&lst))
-		manage_error_free(2, &lst);
+	lst = (t_data){0};
 	if (parsing(&lst, size, arg))
 		manage_error_free(3, &lst);
-	if (ft_already_sort(&lst))
+	if (is_sort_and_b_empty(&lst))
 		ft_sort_dispatcher(&lst, size);
-	debug_print(lst);
+	manage_free_exit(&lst);
 }

@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:48:15 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/28 22:25:33 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 22:44:02 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,11 @@ void				push_to_b_and_sort(t_data *lst, size_t size);
 void				push_to_a(t_data *lst);
 size_t				get_optimal_size(size_t stack_size);
 void				init_segment(t_segment *seg, size_t total_size);
-int					handle_segment_rotation(t_data *lst, size_t *rot_count, size_t stack_size);
+int					handle_segment_rotation(t_data *lst, size_t *rot_count,
+						size_t stack_size);
 void				update_segment(t_data *lst, t_segment *seg);
-void				handle_rotation(t_data *lst, size_t *rot_count, size_t stack_size);
+void				handle_rotation(t_data *lst, size_t *rot_count,
+						size_t stack_size);
 size_t				find_pivot(t_data *lst, size_t start, size_t end);
 
 /*******************************/
@@ -90,14 +92,16 @@ void				ft_reverse_rotate_r(t_data *lst);
 void				manage_error_free(short error, t_data *lst);
 void				ft_put_error_exit(void);
 void				debug_print(t_data lst);
+void				manage_free_exit(t_data *lst);
 
 void				find_pos(t_data *lst, size_t size);
 
-short				ft_already_sort(t_data *lst);
+short				is_sort_and_b_empty(t_data *lst);
 
 size_t				ft_lstsize_int(t_lst *lst);
 t_lst				*ft_lstnew_int(int content);
 void				ft_lstadd_int_back(t_lst **lst, t_lst *new);
 void				ft_lstadd_int_front(t_lst **lst, t_lst *new);
+void				ft_lst_free(t_lst **lst);
 
 #endif

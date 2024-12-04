@@ -24,8 +24,8 @@ OBJ := $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(OBJ))
 NAME_BONUS = checker
 
 SRC_BONUS =	checker_bonus/checker_bonus.c \
-				checker_bonus/read_make_operation.c \
-				operation/swap.c operation/push.c operation/rotate.c operation/reverse_rotate.c \
+				checker_bonus/read_make_operation_bonus.c \
+				checker_bonus/operation_bonus/swap_bonus.c checker_bonus/operation_bonus/push_bonus.c checker_bonus/operation_bonus/rotate_bonus.c checker_bonus/operation_bonus/reverse_rotate_bonus.c \
 				parsing.c utils/utils.c utils/utils_lst.c utils/find_pos.c utils/already_sort.c \
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)

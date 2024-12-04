@@ -6,12 +6,12 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:23:01 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/28 22:17:01 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:19:56 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* ** Phase 2: Final Sorting (Inspring of Selection sort)
-** 
+**
 ** Strategy: Modified Selection Sort
 ** - Finds maximum value in stack B
 ** - Rotates B to bring max to top using optimal direction
@@ -22,8 +22,8 @@
 
 #include "push_swap.h"
 
-/* 
-** Find max value in B 
+/*
+** Find max value in B
 */
 static int	find_max_position(t_data *lst, size_t *pos)
 {
@@ -48,7 +48,7 @@ static int	find_max_position(t_data *lst, size_t *pos)
 	return (max_value);
 }
 
-/* 
+/*
 ** Optimize B by swapping elements if neff
 */
 static void	optimize_rotations(t_data *lst)
@@ -57,14 +57,14 @@ static void	optimize_rotations(t_data *lst)
 	{
 		if (lst->b->pos < lst->b->next->pos)
 		{
-			if (!lst->b->next->next || lst->b->next->pos
-				> lst->b->next->next->pos)
+			if (!lst->b->next->next
+				|| lst->b->next->pos > lst->b->next->next->pos)
 				ft_swap_b(lst);
 		}
 	}
 }
 
-/* 
+/*
 ** Find best rotation for B
 */
 static void	handle_max_rotation(t_data *lst, size_t *max_pos, size_t size)
@@ -84,8 +84,8 @@ static void	handle_max_rotation(t_data *lst, size_t *max_pos, size_t size)
 	}
 }
 
-/* 
-Phase 2: Go back lements back to A and final sort 
+/*
+Phase 2: Go back lements back to A and final sort
 */
 void	push_to_a(t_data *lst)
 {

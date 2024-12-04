@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_make_operation.c                              :+:      :+:    :+:   */
+/*   read_make_operation_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:59:07 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/03 22:15:45 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:16:27 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ static short	valid_input(char *input)
 
 	if (!input)
 		return (0);
-	valid_input = (char *[]){"sa\n", "sb\n", "ss\n", "pa\n", "pb\n",
-		"ra\n", "rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n", NULL};
+	valid_input = (char *[]){"sa\n", "sb\n", "ss\n", "pa\n", "pb\n", "ra\n",
+		"rb\n", "rr\n", "rra\n", "rrb\n", "rrr\n", NULL};
 	i = 0;
 	while (valid_input[i])
 	{
@@ -57,6 +57,7 @@ static short	valid_input(char *input)
 			return (1);
 		i++;
 	}
+	free(input);
 	return (0);
 }
 
@@ -64,14 +65,23 @@ short	read_make_operation(t_data *lst)
 {
 	char	*input;
 
-	(void)lst;
 	input = get_next_line(0);
-	while(input)
+	while (input)
 	{
 		if (!valid_input(input))
+		{
+			while (input)
+			{
+				input = get_next_line(0);
+				free(input);
+			}
 			return (1);
+		}
 		if (make_input(input, lst))
+		{
+			free(input);
 			return (1);
+		}
 		free(input);
 		input = get_next_line(0);
 	}

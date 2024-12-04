@@ -6,12 +6,11 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:25:08 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/11/28 22:52:41 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 23:19:44 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	init_segment(t_segment *seg, size_t total_size)
 {
@@ -20,8 +19,8 @@ void	init_segment(t_segment *seg, size_t total_size)
 	seg->rot_count = 0;
 }
 
-/* 
-** Rotation and segment progress 
+/*
+** Rotation and segment progress
 */
 int	handle_segment_rotation(t_data *lst, size_t *rot_count, size_t stack_size)
 {
@@ -30,8 +29,8 @@ int	handle_segment_rotation(t_data *lst, size_t *rot_count, size_t stack_size)
 	return (*rot_count >= stack_size);
 }
 
-/* 
-** Update segment values for next iteration 
+/*
+** Update segment values for next iteration
 */
 void	update_segment(t_data *lst, t_segment *seg)
 {
@@ -40,7 +39,7 @@ void	update_segment(t_data *lst, t_segment *seg)
 	seg->pivot = find_pivot(lst, seg->start, seg->end);
 }
 
-/* 
+/*
 ** Complete rotation cycle if needed
 */
 void	handle_rotation(t_data *lst, size_t *rot_count, size_t stack_size)

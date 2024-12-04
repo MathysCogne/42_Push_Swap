@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 22:19:42 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/03 21:57:54 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/04 22:47:24 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,17 @@ void	debug_print(t_data lst)
 	}
 }
 
+void	manage_free_exit(t_data *lst)
+{
+	ft_lst_free(&lst->a);
+	ft_lst_free(&lst->b);
+}
+
 void	manage_error_free(short error, t_data *lst)
 {
-	if (error == 2)
-	{
-		ft_printf("DEBUG: Erreur in Alloc struct");
-	}
-	// TODO: FREE CONTENT LST
-	// free(lst->a);
-	// free(lst->b);
-	if (error == 3)
-	{
-		ft_printf("DEBUG: Erreur in Parsing");
-	}
-	if (error == 4)
-	{
-		ft_printf("DEBUG: Erreur in BONUS: Parce input");
-	}
+	if (error >= 3)
+		manage_free_exit(lst);
 	ft_put_error_exit();
-	free(lst);
 }
 
 void	ft_put_error_exit(void)
