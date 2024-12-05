@@ -30,4 +30,5 @@ cmake_install.cmake
 
 # Customize Executable Makefile
 push_swap
+checker
 libft/
