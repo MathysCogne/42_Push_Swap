@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 21:47:51 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/03 19:54:55 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:48:32 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
-	{
-		ft_put_error_exit();
 		return (1);
-	}
 	push_swap(argc, argv);
 	return (0);
 }

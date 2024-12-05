@@ -6,7 +6,7 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:38:28 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/04 22:44:18 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:48:44 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,7 @@ static void	ft_checker(size_t size, char **arg)
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
-	{
-		ft_put_error_exit();
 		return (1);
-	}
 	ft_checker(argc, argv);
 	return (0);
 }
