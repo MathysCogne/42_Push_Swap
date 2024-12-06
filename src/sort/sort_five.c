@@ -6,13 +6,13 @@
 /*   By: mcogne-- <mcogne--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 22:44:26 by mcogne--          #+#    #+#             */
-/*   Updated: 2024/12/04 23:19:34 by mcogne--         ###   ########.fr       */
+/*   Updated: 2024/12/06 16:33:27 by mcogne--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static size_t	find_min_value(t_lst *lst)
+static int	find_min_value(t_lst *lst)
 {
 	int	min;
 
@@ -28,21 +28,28 @@ static size_t	find_min_value(t_lst *lst)
 
 void	ft_sort_five(t_data *lst)
 {
-	size_t	min_value;
+	int	min_value;
 
 	if (!lst->a || !lst->a->next || !lst->a->next->next)
 		return ;
 	while (ft_lstsize_int(lst->a) > 3)
 	{
 		min_value = find_min_value(lst->a);
-		if ((size_t)lst->a->content == min_value)
+		if (lst->a->content == min_value)
 			ft_push_b(lst);
 		else
-			ft_rotate_a(lst);
+		{
+			if (lst->a->next->content == min_value)
+				ft_rotate_a(lst);
+			else
+				ft_reverse_rotate_a(lst);
+		}
 	}
 	ft_sort_three(lst);
+	if (lst->b->content > lst->b->next->content)
+	{
+		ft_push_a(lst);
+		ft_rotate_b(lst);
+	}
 	ft_push_a(lst);
-	ft_push_a(lst);
-	if (lst->a->content > lst->a->next->content)
-		ft_swap_a(lst);
 }

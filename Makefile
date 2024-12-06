@@ -102,10 +102,10 @@ DEP_BONUS = $(OBJ_BONUS:.o=.d)
 
 
 
-# Libft
+# Libft - Branch 'V.push_swap_06_12_2024' (No Update before push projet)
 $(LIBFT):
 	$(V)echo '[$(NAME)] Downloading my Libft from github.com...'$(RESET)
-	@git clone https://github.com/MathysCogne/MyLibft_GNL_Printf.git libft > /dev/null 2>&1
+	@git clone --branch V.push_swap_06_12_2024 https://github.com/MathysCogne/MyLibft_GNL_Printf.git libft > /dev/null 2>&1
 	$(V)echo '[$(NAME)] Compiling Libft...'$(RESET)
 	$(V)$(MAKE) --silent -C $(LIBFT_DIR)
 	$(V)echo '[$(NAME)] Libft build successfully'
